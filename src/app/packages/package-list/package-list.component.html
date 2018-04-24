@@ -1,0 +1,23 @@
+<h6 class="text-center">Package Register</h6><br/>
+<table class="table table-sm table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Plan</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let package of packageList">
+      <td>{{package.name}}</td>
+      <td>{{package.plan}}</td>
+      <td>{{package.price}}</td>
+      <td>
+        <a class="btn" (click)="onEdit(package)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn" (click)="onDelete(package.$key)">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </td>
+  </tr>
+</table>

@@ -1,0 +1,29 @@
+<form #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="packageService.selectedPackage.$key">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name" placeholder="Full Name" required>
+  </div>
+  <div class="form-group">
+    <label>Plan</label>
+    <input class="form-control" name="plan" #plan="ngModel" [(ngModel)]="packageService.selectedPackage.plan" placeholder="Plan">
+  </div>
+  
+  <div class="form-group">
+    <label>Price</label>
+    <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input class="form-control" name="price" #price="ngModel" [(ngModel)]="packageService.selectedPackage.price" placeholder="Price">
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!packageForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(packageForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+</form>
