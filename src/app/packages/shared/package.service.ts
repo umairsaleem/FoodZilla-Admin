@@ -23,6 +23,8 @@ export class PackageService {
     this.PackageList.push({
       name: pkg.name,
       plan: pkg.plan,
+      img : pkg.img,
+      category : pkg.category,
       price : pkg.price
     });
   }
@@ -32,6 +34,8 @@ export class PackageService {
     this.PackageList.update(pkg.$key,{
       name: pkg.name,
       plan: pkg.plan,
+      img : pkg.img,
+      category : pkg.category,
       price : pkg.price
     });
   }

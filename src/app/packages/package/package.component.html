@@ -1,12 +1,28 @@
-<form #packageForm="ngForm" (ngSubmit)="onSubmit(packageForm)">
-    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="packageService.selectedPackage.$key">
+<form #packageForm="ngForm"  (ngSubmit)="onSubmit(packageForm)">
+
+<input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="packageService.selectedPackage.$key">
+
   <div class="form-group">
     <label>Name</label>
-    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name" placeholder="Full Name" required>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="packageService.selectedPackage.name" placeholder="Package Name" required>
   </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <select class="form-control" name="category" #category="ngModel" [(ngModel)]="packageService.selectedPackage.category">
+      <option>Fruits</option>
+      <option>Vegetables</option>
+      <option>FastFood</option>
+    </select>
+  </div>
+
   <div class="form-group">
     <label>Plan</label>
-    <input class="form-control" name="plan" #plan="ngModel" [(ngModel)]="packageService.selectedPackage.plan" placeholder="Plan">
+    <select class="form-control" name="plan" #plan="ngModel" [(ngModel)]="packageService.selectedPackage.plan">
+      <option >Daily</option>
+      <option>Weekly</option>
+      <option>Monthly</option>
+    </select>
   </div>
   
   <div class="form-group">
@@ -18,8 +34,13 @@
         <input class="form-control" name="price" #price="ngModel" [(ngModel)]="packageService.selectedPackage.price" placeholder="Price">
     </div>
   </div>
+
   <div class="form-group">
-    <button class="btn btn-default" type="submit" [disabled]="!packageForm.valid">
+    <input class="form-control" type="file" (change)="uploadImage($event)" value="img" name="img" #img="ngModel" [(ngModel)]="packageService.selectedPackage.img">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default" type="submit"  [disabled]="!packageForm.valid">
       <i class="fa fa-floppy-o"></i>
        Submit</button>
     <button class="btn btn-default" type="button" (click)="resetForm(packageForm)">

@@ -12,6 +12,7 @@ import { UsersComponent } from './users/users.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { PackageComponent } from './packages/package/package.component';
 import { PackageListComponent } from './packages/package-list/package-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 import {PackageService} from './packages/shared/package.service';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,8 +25,9 @@ import { environment } from '../environments/environment';
 
 const appRoutes: Routes =  [
   {path:'', component: DashboardComponent},
+  {path:'packages', component: PackagesComponent},
+  {path:'**', component: PageNotFoundComponent}
   
-  {path:'packages', component: PackagesComponent}
  ]
 
 @NgModule({
@@ -37,7 +39,8 @@ const appRoutes: Routes =  [
     SubscribersComponent,
     PackageComponent,
     PackageListComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
 <table class="table table-sm table-hover">
   <tr>
     <th>Name</th>
+    <th>Category</th>
     <th>Plan</th>
     <th>Price</th>
     <th>Edit</th>
@@ -9,12 +10,15 @@
   </tr>
   <tr *ngFor="let package of packageList">
       <td>{{package.name}}</td>
+      <td>{{package.category}}</td>
       <td>{{package.plan}}</td>
       <td>{{package.price}}</td>
       <td>
         <a class="btn" (click)="onEdit(package)">
           <i class="fa fa-pencil-square-o"></i>
         </a>
+        </td>
+        <td>
         <a class="btn" (click)="onDelete(package.$key)">
           <i class="fa fa-trash-o"></i>
         </a>

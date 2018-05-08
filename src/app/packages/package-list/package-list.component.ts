@@ -27,6 +27,7 @@ export class PackageListComponent implements OnInit {
   }
 
   onEdit(pkg: Package) {
+    console.log('pkg',pkg)
     this.packageService.selectedPackage = Object.assign({}, pkg);
   }
  
